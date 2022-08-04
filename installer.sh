@@ -27,13 +27,13 @@ fi
 
 if [ "$PYTHON_VERSION" -eq 3 ]; then
     echo ":You have Python3 image ..."
-    PACKAGE="enigma2-plugin-extensions-subssupport-py3_1.5.8_all.ipk"
+    PACKAGE="enigma2-plugin-extensions-subssupport-py3"
 else
     echo ":You have Python2 image ..."
     if [ $OSTYPE = "Opensource" ]; then
-        PACKAGE="enigma2-plugin-extensions-subssupport-py2_1.5.8_all.ipk"
+        PACKAGE="enigma2-plugin-extensions-subssupport-py2"
     elif [ $OSTYPE = "DreamOS" ]; then
-        PACKAGE="enigma2-plugin-extensions-subssupport_1.5.8_all.deb"
+        PACKAGE="enigma2-plugin-extensions-subssupport-deb"
         PACKAGE="enigma2-plugin-extensions-subssupport"
     fi
 fi
