@@ -27,13 +27,13 @@ fi
 
 if [ "$PYTHON_VERSION" -eq 3 ]; then
     echo ":You have Python3 image ..."
-    PACKAGE_IPK='enigma2-plugin-extensions-subssupport-py3_1.5.8_all.ipk'
+    PACKAGE="enigma2-plugin-extensions-subssupport-py3_1.5.8_all.ipk"
 else
     echo ":You have Python2 image ..."
     if [ $OSTYPE = "Opensource" ]; then
-        PACKAGE_IPK='enigma2-plugin-extensions-subssupport-py2_1.5.8_all.ipk'
+        PACKAGE="enigma2-plugin-extensions-subssupport-py2_1.5.8_all.ipk"
     elif [ $OSTYPE = "DreamOS" ]; then
-        PACKAGE_DEB='enigma2-plugin-extensions-subssupport_1.5.8_all.deb'
+        PACKAGE="enigma2-plugin-extensions-subssupport_1.5.8_all.deb"
         PACKAGE="enigma2-plugin-extensions-subssupport"
     fi
 fi
@@ -58,11 +58,11 @@ $OPKG >/dev/null 2>&1
 echo "Insallling SubsSupport plugin Please Wait ......"
 
 if [ $OSTYPE = "Opensource" ]; then
-    wget $MY_URL/${PACKAGE_IPK}_${VERSION}_all.ipk -qP $TMPDIR
-    $OPKGINSTAL $TMPDIR/${PACKAGE_IPK}_${VERSION}_all.ipk
+    wget $MY_URL/${PACKAGE}_${VERSION}_all.ipk -qP $TMPDIR
+    $OPKGINSTAL $TMPDIR/${PACKAGE}_${VERSION}_all.ipk
 elif [ $OSTYPE = "DreamOS" ]; then
-    wget $MY_URL/${PACKAGE_DEB}_${VERSION}_all.deb -qP $TMPDIR
-    $DPKINSTALL $TMPDIR/${PACKAGE_DEB}_${VERSION}.deb
+    wget $MY_URL/${PACKAGE}_${VERSION}_all.deb -qP $TMPDIR
+    $DPKINSTALL $TMPDIR/${PACKAGE}_${VERSION}.deb
     $OPKGINSTAL -f -y
 
 fi
